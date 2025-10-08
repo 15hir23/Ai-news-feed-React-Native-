@@ -1,5 +1,3 @@
-# ai-news-feed
-
 # 📱 AI Trading News Feed App
 
 A beautiful React Native Expo app that displays real-time stock and crypto news with AI-powered summaries.
