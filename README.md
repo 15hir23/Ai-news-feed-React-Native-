@@ -40,7 +40,10 @@ A beautiful, feature-rich React Native mobile application that delivers real-tim
 
 | News Feed | AI Summary | Chatbot |
 |-----------|------------|---------|
-| ![Feed](screenshots/feed.png) | ![Summary](screenshots/summary.png) | ![Chat](screenshots/chat.png) |
+| ![main](https://github.com/user-attachments/assets/ec9b8995-c125-4af2-be20-2cd15d3819ee)
+ | ![ai analysis](https://github.com/user-attachments/assets/4711eca2-3ac9-4599-a30c-63fc3683ca89)
+ | ![chat](https://github.com/user-attachments/assets/8bafdb91-8b80-4aeb-b1c2-6f1a5d0a996f)
+ |
 
 *Add screenshots to a `/screenshots` folder in your repo*
 
