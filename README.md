@@ -39,7 +39,7 @@ A beautiful, feature-rich React Native mobile application that delivers real-tim
 
 | News Feed | AI Summary | Chatbot |
 |-----------|------------|---------|
-| <img src="https://github.com/user-attachments/assets/ec9b8995-c125-4af2-be20-2cd15d3819ee" width="160"/> | <img src="https://github.com/user-attachments/assets/4711eca2-3ac9-4599-a30c-63fc3683ca89" width="160"/> | <img src="https://github.com/user-attachments/assets/8bafdb91-8b80-4aeb-b1c2-6f1a5d0a996f" width="160"/> |
+| <img src="https://github.com/user-attachments/assets/ec9b8995-c125-4af2-be20-2cd15d3819ee" width="180"/> | <img src="https://github.com/user-attachments/assets/4711eca2-3ac9-4599-a30c-63fc3683ca89" width="180"/> | <img src="https://github.com/user-attachments/assets/8bafdb91-8b80-4aeb-b1c2-6f1a5d0a996f" width="180"/> |
 
 
 ## 🚀 Quick Start
