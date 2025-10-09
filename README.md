@@ -30,6 +30,12 @@ A beautiful, feature-rich React Native mobile application that delivers real-tim
 - **Trending Topics**: Automatically extracted trending keywords from news
 - **Smart Notifications**: Configurable alerts for price movements, news, and community replies
 
+##🎥 Demo & Live Preview
+
+<a href="https://expo.dev/accounts/hir25/projects/ai-news-feed/updates/23eefdea-f306-42c3-8784-4c86241df7dd" target="_blank">
+  <img src="https://img.shields.io/badge/▶️%20Open%20in%20Expo%20Go-blue?style=for-the-badge&logo=expo" alt="Expo Demo Link"/>
+</a>
+
 ## 🎥 Demo Video
 🎬 **[Watch 2-Minute Walkthrough](https://drive.google.com/file/d/1dV6FuavbDHrAsfRsE-2TWSdBYVR-IWhc/view?usp=sharing)**
 
