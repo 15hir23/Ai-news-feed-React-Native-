@@ -255,9 +255,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [Expo](https://expo.dev/) for amazing development tools
 - [React Native Community](https://reactnative.dev/) for excellent documentation
 
-## 📞 Support
-
-For support, email your-email@example.com or open an issue on GitHub.
 
 ---
 
