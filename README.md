@@ -1,254 +1,266 @@
-# 📱 AI Trading News Feed App
+# 📈 AI Trade News - React Native News Aggregator
 
-A beautiful React Native Expo app that displays real-time stock and crypto news with AI-powered summaries.
+A beautiful, feature-rich React Native mobile application that delivers real-time financial market news with AI-powered insights, sentiment analysis, and an intelligent trading assistant chatbot.
+
+![React Native](https://img.shields.io/badge/React%20Native-0.74-blue)
+![Expo](https://img.shields.io/badge/Expo-SDK%2051-000020)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.3-blue)
+![License](https://img.shields.io/badge/license-MIT-green)
 
 ## ✨ Features
 
-- **10 Latest Headlines**: Displays stock/crypto news with title, source, timestamp, and thumbnail
-- **AI Summary Modal**: Get 3-line AI-generated summaries with a single tap
-- **Pull-to-Refresh**: Swipe down to fetch the latest news
-- **Dark/Light Mode**: Toggle between beautiful dark and light pastel themes (defaults to dark)
-- **Smooth Animations**: Professional UI with native feel
-- **Clean Code**: Well-structured, commented, and maintainable
+### Core Requirements ✅
+- **📰 News Feed**: Displays 15+ financial news articles with title, source, timestamp, and high-quality thumbnails
+- **🤖 AI Summary**: One-tap access to AI-generated 3-line summaries with key insights via elegant modal
+- **🔄 Pull-to-Refresh**: Seamless refresh mechanism to fetch the latest market news
+- **🌙 Dark Mode**: Beautiful dark theme optimized for extended reading sessions (light mode also available)
+- **📱 Responsive Design**: Adaptive layout that works perfectly on all screen sizes
 
-## 🎨 Design Highlights
+### Bonus Features 🎁
+- **AI Trading Assistant Chatbot**: Interactive AI that provides market insights, answers questions about stocks/crypto, and analyzes news in real-time
+- **Real-time Market Ticker**: Live updates for SPY, BTC, and ETH with price movements
+- **Sentiment Analysis**: Automatic sentiment classification (Bullish/Bearish/Neutral) for each article
+- **Smart Search**: Real-time search across headlines and summaries
+- **Category Filtering**: Filter news by Stocks, Crypto, Tech, Business, or Markets
+- **Community Discussion**: Comment system for each article with likes and user interactions
+- **Bookmarks**: Save articles for later reading
+- **Reading History**: Track read articles with visual indicators
+- **Settings Panel**: Comprehensive settings with statistics, notifications, and data management
+- **Theme Toggle**: Switch between dark and light modes instantly
+- **Trending Topics**: Automatically extracted trending keywords from news
+- **Smart Notifications**: Configurable alerts for price movements, news, and community replies
 
-- **Solid Pastel Colors**: No gradients, clean aesthetic
-- **Dark Mode Default**: Eye-friendly dark theme with light mode option
-- **Responsive Cards**: Beautiful news cards with images
-- **Modern Typography**: Clear hierarchy and readability
-- **Native Interactions**: Smooth animations and touch feedback
+## 🎥 Demo Video
 
-## 📋 Requirements
+**[🎬 Watch 1-Minute Loom Walkthrough](YOUR_LOOM_LINK_HERE)**
 
-- Node.js (v14 or higher)
-- npm or yarn
-- Expo CLI
-- Expo Go app (for testing on physical device)
+*Replace with your Loom video link showcasing the app's features*
 
-## 🚀 Setup Instructions
+## 📸 Screenshots
 
-### 1. Install Expo CLI (if not already installed)
+| News Feed | AI Summary | Chatbot |
+|-----------|------------|---------|
+| ![Feed](screenshots/feed.png) | ![Summary](screenshots/summary.png) | ![Chat](screenshots/chat.png) |
 
+*Add screenshots to a `/screenshots` folder in your repo*
+
+## 🚀 Quick Start
+
+### Prerequisites
+
+- **Node.js** (v18 or higher)
+- **npm** or **yarn**
+- **Expo CLI** (installed globally)
+- **Expo Go** app on your mobile device (iOS/Android)
+
+### Installation
+
+1. **Clone the repository**
 ```bash
-npm install -g expo-cli
+git clone https://github.com/YOUR_USERNAME/ai-trade-news.git
+cd ai-trade-news
 ```
 
-### 2. Create New Expo Project
-
-```bash
-npx create-expo-app ai-news-feed
-cd ai-news-feed
-```
-
-### 3. Replace App.tsx
-
-Copy the provided `App.tsx` code and replace the default `App.tsx` file in your project root.
-
-### 4. Install Dependencies
-
+2. **Install dependencies**
 ```bash
 npm install
+# or
+yarn install
 ```
 
-### 5. Run the App
+3. **Set up environment variables** (Optional)
 
+Create a `.env` file in the root directory:
+```env
+REACT_APP_NEWS_API_KEY=your_newsapi_key_here
+```
+
+> **Note**: The app includes a demo API key and falls back to mock data if the API is unavailable, so it works out of the box!
+
+4. **Start the development server**
 ```bash
 npx expo start
 ```
 
-Then:
-- Press `i` for iOS simulator
-- Press `a` for Android emulator
-- Scan QR code with Expo Go app on your physical device
-
-## 🔌 API Integration
-
-### Current Implementation
-The app currently uses mock data for demonstration. To integrate real APIs:
-
-### Option 1: Finnhub API (Free Tier Available)
-
-```javascript
-const fetchNews = async () => {
-  try {
-    setLoading(true);
-    const response = await fetch(
-      'https://finnhub.io/api/v1/news?category=general&token=YOUR_API_KEY'
-    );
-    const data = await response.json();
-    
-    // Transform data to match app structure
-    const transformedNews = data.slice(0, 10).map((item, index) => ({
-      id: String(index),
-      title: item.headline,
-      source: item.source,
-      time: new Date(item.datetime * 1000).toLocaleTimeString(),
-      image: item.image,
-      summary: item.summary || 'Summary not available'
-    }));
-    
-    setNews(transformedNews);
-  } catch (error) {
-    console.error('Error fetching news:', error);
-  } finally {
-    setLoading(false);
-  }
-};
-```
-
-**Get API Key**: https://finnhub.io/register
-
-### Option 2: NewsAPI (Free Tier: 100 requests/day)
-
-```javascript
-const fetchNews = async () => {
-  try {
-    setLoading(true);
-    const response = await fetch(
-      'https://newsapi.org/v2/everything?q=stock+OR+crypto&sortBy=publishedAt&apiKey=YOUR_API_KEY'
-    );
-    const data = await response.json();
-    
-    const transformedNews = data.articles.slice(0, 10).map((item, index) => ({
-      id: String(index),
-      title: item.title,
-      source: item.source.name,
-      time: new Date(item.publishedAt).toLocaleTimeString(),
-      image: item.urlToImage || 'https://via.placeholder.com/400',
-      summary: item.description || 'Summary not available'
-    }));
-    
-    setNews(transformedNews);
-  } catch (error) {
-    console.error('Error fetching news:', error);
-  } finally {
-    setLoading(false);
-  }
-};
-```
-
-**Get API Key**: https://newsapi.org/register
-
-### Option 3: OpenAI for AI Summaries
-
-```javascript
-const generateAISummary = async (title, content) => {
-  try {
-    const response = await fetch('https://api.openai.com/v1/chat/completions', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer YOUR_OPENAI_API_KEY`
-      },
-      body: JSON.stringify({
-        model: 'gpt-3.5-turbo',
-        messages: [{
-          role: 'user',
-          content: `Summarize this news in 3 concise lines: ${title}. ${content}`
-        }],
-        max_tokens: 100
-      })
-    });
-    
-    const data = await response.json();
-    return data.choices[0].message.content;
-  } catch (error) {
-    console.error('Error generating summary:', error);
-    return 'AI summary temporarily unavailable';
-  }
-};
-```
-
-**Get API Key**: https://platform.openai.com/api-keys
+5. **Run on your device**
+- Scan the QR code with **Expo Go** (Android) or **Camera** app (iOS)
+- Or press `a` for Android emulator, `i` for iOS simulator
 
 ## 📦 Project Structure
 
 ```
-ai-news-feed/
-├── App.tsx              # Main application component
-├── app.json            # Expo configuration
-├── package.json        # Dependencies
-└── README.md          # This file
+ai-trade-news/
+├── App.tsx                 # Main application component
+├── package.json           # Dependencies and scripts
+├── app.json              # Expo configuration
+├── tsconfig.json         # TypeScript configuration
+├── .env                  # Environment variables (create this)
+└── README.md            # This file
 ```
 
-## 🎯 Scoring Checklist (100 points)
+## 🛠️ Technologies Used
 
-- ✅ **API Integration (30pts)**: Mock data ready for API replacement
-- ✅ **UI/UX Design (20pts)**: Beautiful dark/light mode with pastels
-- ✅ **Functionality (20pts)**: AI summary modal + pull-to-refresh
-- ✅ **Code Quality (15pts)**: Clean, commented, well-structured
-- ✅ **Presentation (15pts)**: README + code ready for demo
+- **React Native** - Cross-platform mobile development
+- **Expo** - Development platform and tooling
+- **TypeScript** - Type-safe JavaScript
+- **NewsAPI** - Real-time news aggregation
+- **React Hooks** - State management (useState, useEffect, useCallback, useRef)
+- **Animated API** - Smooth animations and transitions
+- **KeyboardAvoidingView** - Intelligent keyboard handling
 
-## 🎥 Demo Video Guide
+## 🎨 Key Features Breakdown
 
-When recording your Loom walkthrough, showcase:
+### 1. News Feed
+- Fetches real-time financial news from NewsAPI
+- Displays rich cards with images, categories, and sentiment badges
+- Auto-categorization into Stocks, Crypto, Tech, Business, Markets
+- Visual indicators for read/unread articles
+- Bookmark and share functionality
 
-1. **App Launch**: Show default dark mode
-2. **News Feed**: Scroll through 10 headlines
-3. **AI Summary**: Tap button, show modal with 3-line summary
-4. **Pull-to-Refresh**: Swipe down to refresh news
-5. **Theme Toggle**: Switch between dark and light modes
-6. **Code Structure**: Quick tour of App.tsx organization
+### 2. AI Summary Modal
+- Elegant modal with AI-generated summaries
+- Key highlights extraction (3 bullet points)
+- Sentiment analysis visualization
+- Direct link to community discussions
+- Source attribution and timestamp
 
-## 🛠️ Customization
+### 3. AI Trading Assistant
+- Context-aware chatbot powered by news data
+- Answers questions about markets, stocks, and crypto
+- Real-time news search integration
+- Markdown-style formatted responses
+- Typing indicators and smooth scrolling
 
-### Change Colors
+### 4. Market Ticker
+- Real-time price updates (simulated)
+- Color-coded price movements (green/red)
+- Horizontal scrolling for multiple assets
+- Updates every 30 seconds
 
-Edit the `theme` object in App.tsx:
+### 5. Community Features
+- Per-article comment threads
+- Like/upvote system
+- User-friendly comment composition
+- Keyboard-aware UI
 
-```javascript
+### 6. Settings & Customization
+- Usage statistics dashboard
+- Notification preferences
+- Theme switching
+- Data management (clear history/bookmarks)
+
+## 🔧 Configuration
+
+### API Key Setup
+
+The app uses NewsAPI for fetching news. You have two options:
+
+**Option 1: Use included demo key (default)**
+- Works out of the box with limited requests
+- Fallback to mock data if quota exceeded
+
+**Option 2: Use your own API key**
+1. Get free API key from [newsapi.org](https://newsapi.org/)
+2. Add to `.env` file:
+```env
+REACT_APP_NEWS_API_KEY=your_key_here
+```
+
+### Customization
+
+**Change theme colors:**
+Edit the `theme` object in `App.tsx`:
+```typescript
 const theme = {
   dark: {
-    bg: '#0f172a',      // Background
-    card: '#1e293b',    // Card background
-    accent: '#a78bfa',  // Button color
-    // ... more colors
+    accent: '#8b5cf6',  // Change primary color
+    // ... other colors
   }
-};
+}
 ```
 
-### Add More News Items
+**Modify news categories:**
+```typescript
+const categories = ['All', 'Stocks', 'Crypto', 'Tech', 'Business', 'Markets'];
+```
 
-Change `MOCK_NEWS` array or increase API fetch limit from 10.
+**Adjust refresh interval for market data:**
+```typescript
+const marketInterval = setInterval(updateMarketData, 30000); // 30 seconds
+```
 
-### Modify Summary Length
+## 📱 Build for Production
 
-Adjust the summary text in mock data or OpenAI prompt for different lengths.
+### Android APK
+```bash
+npx expo build:android
+```
 
-## 📝 Notes
+### iOS IPA
+```bash
+npx expo build:ios
+```
 
-- Images are sourced from Unsplash for demonstration
-- Mock data simulates real API responses
-- App is optimized for both iOS and Android
-- Uses Expo's native components for best performance
-- No external UI libraries required
+### EAS Build (Recommended)
+```bash
+# Install EAS CLI
+npm install -g eas-cli
 
-## 🚨 Important Reminders
+# Configure EAS
+eas build:configure
 
-1. **API Keys**: Never commit API keys to GitHub. Use environment variables:
-   ```javascript
-   import Constants from 'expo-constants';
-   const API_KEY = Constants.expoConfig.extra.apiKey;
-   ```
+# Build for Android
+eas build --platform android
 
-2. **Rate Limits**: Be mindful of free tier limits on APIs
+# Build for iOS
+eas build --platform ios
+```
 
-3. **Error Handling**: App includes basic error handling; expand as needed
+## 🐛 Troubleshooting
+
+**Issue: API rate limit exceeded**
+- Solution: The app automatically falls back to mock data
+
+**Issue: Images not loading**
+- Solution: Check internet connection; mock data has fallback images
+
+**Issue: Expo Go won't connect**
+- Solution: Ensure phone and computer are on same WiFi network
+
+**Issue: Keyboard covers input**
+- Solution: App uses KeyboardAvoidingView, but you may need to adjust behavior prop for your device
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 👨‍💻 Author
+
+**Your Name**
+- GitHub: [@YOUR_USERNAME](https://github.com/YOUR_USERNAME)
+- LinkedIn: [Your LinkedIn](https://linkedin.com/in/YOUR_PROFILE)
+
+## 🙏 Acknowledgments
+
+- [NewsAPI](https://newsapi.org/) for providing news data
+- [Unsplash](https://unsplash.com/) for placeholder images
+- [Expo](https://expo.dev/) for amazing development tools
+- [React Native Community](https://reactnative.dev/) for excellent documentation
 
 ## 📞 Support
 
-For issues or questions:
-- Check Expo documentation: https://docs.expo.dev
-- React Native docs: https://reactnative.dev
+For support, email your-email@example.com or open an issue on GitHub.
 
-## 🎉 Ready to Submit!
+---
 
-Your app includes:
-- ✅ Complete App.tsx code
-- ✅ All required features
-- ✅ Beautiful UI design
-- ✅ Documentation
-- ✅ API integration guide
-
-**Good luck with your assessment! 🚀**
+**⭐ If you find this project useful, please consider giving it a star!**
