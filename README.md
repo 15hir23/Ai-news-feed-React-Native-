@@ -31,8 +31,7 @@ A beautiful, feature-rich React Native mobile application that delivers real-tim
 - **Smart Notifications**: Configurable alerts for price movements, news, and community replies
 
 ## 🎥 Demo Video
-
-**[🎬 Watch 1-Minute Loom Walkthrough](YOUR_LOOM_LINK_HERE)**
+🎬 **[Watch 2-Minute Walkthrough](https://drive.google.com/file/d/1dV6FuavbDHrAsfRsE-2TWSdBYVR-IWhc/view?usp=sharing)**
 
 *Replace with your Loom video link showcasing the app's features*
 
