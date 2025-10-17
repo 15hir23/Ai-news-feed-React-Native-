@@ -37,7 +37,7 @@ A beautiful, feature-rich React Native mobile application that delivers real-tim
 </a>
 
 ## 🎥 Demo Video
-🎬 **[Watch 2-Minute Walkthrough](https://drive.google.com/file/d/1dV6FuavbDHrAsfRsE-2TWSdBYVR-IWhc/view?usp=sharing)**
+🎬 **[Watch 2-Minute Walkthrough]([https://drive.google.com/file/d/1dV6FuavbDHrAsfRsE-2TWSdBYVR-IWhc/view?usp=sharing](https://drive.google.com/file/d/1ezab3U2RHTAbOlfIljCD5ojdo1vZ5i5c/view?usp=sharing))**
 
 *Replace with your Loom video link showcasing the app's features*
 
